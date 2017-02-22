@@ -21,7 +21,7 @@ angular
     'oc.lazyLoad',
     'datatables',
     'datatables.bootstrap',
-    'rzModule', //for range Picker
+    'rzModule',
     'angularLazyImg'
   ])
   .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {

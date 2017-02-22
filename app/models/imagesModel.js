@@ -3,10 +3,9 @@
   var injectParams = ['$http', '$q', 'APIService'];
   var service = function ($http, $q, APIService) {
 
-    var apiBaseUrl = APIService.getApiBaseURL() + 'api/v1/images/';
+    var apiBaseUrl = APIService.getApiBaseURL() + '/api/v1/images/';
 
     function imagesModel() {
-
     }
 
 

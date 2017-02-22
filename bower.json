@@ -16,7 +16,7 @@
     "datatables": "^1.10.13",
     "angular-datatables": "0.4.3",
     "lodash": "^4.17.4",
-    "angularjs-slider": "^6.0.1", //for rannge Slider
+    "angularjs-slider": "^6.0.1",
     "angular-lazy-img": "^1.2.2"
   },
   "devDependencies": {
