@@ -4,13 +4,13 @@
   var service = function () {
     var factory = this;
 
-    //var env = 'production';
+    var env = 'production';
     //var env = 'beta';
-    var env = 'localhost';
+    //var env = 'localhost';
     if (env === 'production') {
       factory.protocal = 'https://';
       factory.environment = {
-        ipAddress: '',
+        ipAddress: 'image-cleaning-api.herokuapp.com',
         port: '' // Live server
       };
     } else {

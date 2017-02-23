@@ -7,7 +7,6 @@
     function imagesModel() {
     }
 
-
     imagesModel.prototype = {
 
       uploadImage: function (data) {
