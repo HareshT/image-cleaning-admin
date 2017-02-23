@@ -4,7 +4,6 @@
   var service = function ($http, $q, APIService) {
 
     var apiBaseUrl = APIService.getApiBaseURL() + '/api/v1/images/';
-
     function imagesModel() {
     }
 
