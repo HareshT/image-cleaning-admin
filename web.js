@@ -15,7 +15,7 @@ app.use(gzippo.staticGzip(www));
 console.log('UI is service on PORT : ', port);
 app.listen(port);*/
 
-var www = __dirname + path.sep + 'dist';
+var www = __dirname + path.sep + 'app';
 
 var port = process.env.PORT || 5000;
 app.use(morgan('dev'));
