@@ -362,7 +362,7 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  /*grunt.registerTask('build', [
+  grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -378,7 +378,7 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
-  ]);*/
+  ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
