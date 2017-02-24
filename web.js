@@ -7,6 +7,5 @@ var app = express();
 
 var port = process.env.PORT || 5000;
 app.use(morgan('dev'));
-app.use(express.static(__dirname + "/dist/index.html"));
-console.log('UI is service on PORT : ', port);
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(port);
