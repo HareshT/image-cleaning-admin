@@ -24,55 +24,39 @@ angular
     'rzModule',
     'angularLazyImg'
   ])
-  .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-    $urlRouterProvider.otherwise('/home');
+  .config(function ($stateProvider, $routeProvider, $locationProvider, $ocLazyLoadProvider) {
+    $locationProvider.hashPrefix('');
 
-    $stateProvider
-      .state('home', {
-        url: '/home',
+    $routeProvider
+      .otherwise({
+        redirectTo: '/'
+      })
+      .when('/', {
+         //url: '/home',
         templateUrl: 'views/admin/main.html',
         controller: 'MainCtrl',
-        resolve: {
-          loadMyFiles: function ($ocLazyLoad) {
-            return $ocLazyLoad.load({
-              name: 'sbAdminApp',
-              files: [
-                'scripts/controllers/admin/main.js'
-              ]
-            })
-          }
-        }
+        activetab: 'home'
       })
-      .state('testUser', {
-        url: '/testUser',
-        templateUrl: 'views/admin/testUser.html',
-        controller: 'testUserCtrl',
-        resolve: {
-          loadMyFiles: function ($ocLazyLoad) {
-            return $ocLazyLoad.load({
-              name: 'sbAdminApp',
-              files: [
-                'scripts/controllers/admin/testUserCtrl.js',
-                'models/testUserModel.js'
-              ]
-            })
-          }
-        }
+      .when('/home', {
+       // url: '/home',
+        templateUrl: 'views/admin/main.html',
+        controller: 'MainCtrl',
+        activetab: 'home'
       })
-      .state('images', {
-        url: '/images',
+      //.when('/testUser', {
+      //  //  url: '/testUser',
+      //  templateUrl: 'views/admin/testUser.html',
+      //  controller: 'testUserCtrl'
+      //})
+      .when('/images', {
+        //   url: '/images',
         templateUrl: 'views/admin/images.html',
         controller: 'imagesCtrl',
-        resolve: {
-          loadMyFiles: function ($ocLazyLoad) {
-            return $ocLazyLoad.load({
-              name: 'sbAdminApp',
-              files: [
-                'scripts/controllers/admin/imagesCtrl.js',
-                'models/imagesModel.js'
-              ]
-            })
-          }
-        }
-      })
+        activetab: 'images'
+      });
+  })
+  .run(function ($rootScope) {
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+      // console.log('in $routeChangeStart',next);
+    });
   });

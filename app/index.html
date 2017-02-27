@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="imageCleaningApp">
+<body ng-app="imageCleaningApp" ng-controller="rootCtrl">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -28,7 +28,7 @@
 <!-- Add your site or application content here -->
 <div class="header">
     <div class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color: #8a4182;color: black !important;">
             <div class="navbar-header">
 
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -39,15 +39,15 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="#">Image Cleaning</a>
+                <a class="navbar-brand"  ng-href="#/" style="color: #1f2636 !important;">Image Cleaning</a>
             </div>
 
             <div class="collapse navbar-collapse" id="js-navbar-collapse" align="center">
 
                 <ul class="nav navbar-nav">
-                    <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                    <li ng-class="{active: $route.current.activetab === 'home'}"><a ng-href="#/home" style="color: #1f2636 !important;">Home</a></li>
                     <!--<li ui-sref-active="active"><a ui-sref="testUser">TestUser</a></li>-->
-                    <li ui-sref-active="active"><a ui-sref="images">Images</a></li>
+                    <li ng-class="{active: $route.current.activetab === 'images'}"><a  ng-href="#/images" style="color: #1f2636 !important;">Images</a></li>
                 </ul>
             </div>
         </div>
@@ -55,7 +55,7 @@
 </div>
 
 <div class="container-fluid">
-    <div ui-view=""></div>
+    <div ng-view=""></div>
 </div>
 
 <div class="footer">
@@ -111,18 +111,18 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<!--<script src="scripts/controllers/admin/main.js"></script>-->
+<script src="scripts/controllers/admin/rootCtrl.js"></script>
+<script src="scripts/controllers/admin/main.js"></script>
 <!--<script src="scripts/controllers/admin/testUserCtrl.js"></script>-->
-
+<script src="scripts/controllers/admin/imagesCtrl.js"></script>
 
 <!--------- Models  ------->
 <!--<script src="models/testUserModel.js"></script>-->
-
+<script src="models/imagesModel.js"></script>
 
 <!--------- Services  ------->
 <script src="services/ApiService.js"></script>
 <script src="services/ToastService.js"></script>
-
 <!-- endbuild -->
 </body>
 </html>
