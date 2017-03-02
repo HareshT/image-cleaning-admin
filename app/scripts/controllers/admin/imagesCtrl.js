@@ -1,17 +1,14 @@
 'use strict';
 
 angular.module('imageCleaningApp')
-  .controller('imagesCtrl', ["$scope", "$compile", "$sce", "DTOptionsBuilder", "DTColumnBuilder", "ToasterService", "imagesModel", function ($scope, $compile, $sce, DTOptionsBuilder, DTColumnBuilder, ToasterService, imagesModel) {
+  .controller('imagesCtrl', ["$scope", "$compile", "$sce", "DTOptionsBuilder", "DTColumnBuilder", "ToasterService", "imagesModel","APIService", function ($scope, $compile, $sce, DTOptionsBuilder, DTColumnBuilder, ToasterService, imagesModel,APIService) {
     $scope.images = this;
     $scope.allImagaesId = [];
     $scope.AllImageDetails = [];
-
+    
+    var apiBaseUrl = APIService.getApiBaseURL();
     var imagesModel = new imagesModel();
     var $postData = {};
-
-    imagesModel.getApiUrl($postData).then(function (response) {
-      $scope.apiUrl = response.data;
-    });
 
     //Range slider config
     $scope.rangeSlider = {
@@ -85,9 +82,9 @@ angular.module('imageCleaningApp')
 
     function img(data) {
       var html = '';
-      var imdData = $sce.trustAsResourceUrl($scope.apiUrl + '' + data.imgPath + '' + data.imgName);
+      var imdData = $sce.trustAsResourceUrl(apiBaseUrl + '' + data.imgPath + '' + data.imgName);
       //html = '<img height="50px" width="50px" lazy-img="' + data.imgPath + '' + data.imgName + '">'
-      html = '<img height="50px" width="50px" lazy-img="' + imdData + '">';
+      html = '<img height="50px" width="50px" ng-src="' + imdData + '">';
       return html;
     }
 
